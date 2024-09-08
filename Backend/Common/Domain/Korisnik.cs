@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Common.Domain
@@ -22,7 +23,11 @@ namespace Common.Domain
         public string Email { get; set; }
         public string BrojTelefona { get; set; }
         public string Token { get; set; }
+
+        [JsonIgnore]
         public string TableName => "Korisnik";
+
+        [JsonIgnore]
         public string PrimaryKey => "sifraKorisnika";
 
         public string GetFilterQuery(string filter, string field = "")
@@ -32,6 +37,9 @@ namespace Common.Domain
 
             if (field == "prezime")
                 return $"lower(prezime) like concat('%',lower('{filter}'),'%')";
+
+            if (field == "password")
+                return $"password = '{filter}'";
 
             return $"(lower(ime) like concat('%',lower('{filter}'),'%')) OR (lower(prezime) like concat('%',lower('{filter}'),'%'))";
         }

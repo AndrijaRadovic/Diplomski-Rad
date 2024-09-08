@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Common.Domain
@@ -13,8 +14,12 @@ namespace Common.Domain
         public int SifraProizvoda { get; set; }
         public string NazivProizvoda { get; set; }
         public double Cena { get; set; }
-        public string TableName => "Proizvod";
         public TipProizvoda TipProizvoda { get; set; }
+
+        [JsonIgnore]
+        public string TableName => "Proizvod";
+
+        [JsonIgnore]
         public string PrimaryKey => "sifraProizvoda";
 
         public virtual string AddColumn()

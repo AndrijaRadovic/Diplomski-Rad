@@ -9,7 +9,7 @@ namespace Web_API.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ReceiptsController : ControllerBase
     {
         [HttpPut("receiptId")]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Common.Domain
@@ -16,7 +17,11 @@ namespace Common.Domain
         public Korisnik Korisnik { get; set; }
         public List<StavkaRacuna> StavkeRacuna { get; set; }
         public StatusRacuna StatusRacuna { get; set; }
+
+        [JsonIgnore]
         public string TableName => "Racun";
+
+        [JsonIgnore]
         public string PrimaryKey => "sifraRacuna";
 
         public string AddColumn()

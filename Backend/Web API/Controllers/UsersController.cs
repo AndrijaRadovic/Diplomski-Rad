@@ -44,7 +44,8 @@ namespace Web_API.Controllers
         {
             try
             {
-                PronadjiKorisnikeSO so = new PronadjiKorisnikeSO(filter);
+                string[] vrednosti = new string[] { filter, "" };
+                PronadjiKorisnikeSO so = new PronadjiKorisnikeSO(vrednosti);
                 so.ExecuteTemplate();
                 List<Korisnik> users = so.Result.Cast<Korisnik>().ToList();
 
@@ -131,22 +132,41 @@ namespace Web_API.Controllers
         [ProducesResponseType(400)]
         public IActionResult ChangePassword(int userId, [FromBody] JsonElement passwords)
         {
-//            struktura json-a:
-//            {
-//                "oldPassword": "qwe",
-//                "newPassword": "asd"
-//            }
-
-            // Dodaj proveru
+            //            struktura json-a:
+            //            {
+            //                "oldPassword": "qwe",
+            //                "newPassword": "asd"
+            //            }
 
             try
             {
-                PromeniSifruSO so = new PromeniSifruSO(new Korisnik()
+                string[] vrednosti = new string[] { passwords.GetProperty("oldPassword").GetString(), "password" };
+                PronadjiKorisnikeSO pretragaSO = new PronadjiKorisnikeSO(vrednosti);
+                pretragaSO.ExecuteTemplate();
+                List<Korisnik> korisnici = pretragaSO.Result.Cast<Korisnik>().ToList();
+
+                if (korisnici == null || korisnici.Count == 0)
+                    return BadRequest("Pogresno uneta lozinka");
+
+                bool praviKorisnik = false;
+                foreach(Korisnik k in korisnici)
+                {
+                    if (k.SifraKorisnika == userId)
+                    {
+                        praviKorisnik = true;
+                        break;
+                    }
+                }
+
+                if (!praviKorisnik)
+                    return BadRequest("Pogresno uneta lozinka");
+
+                PromeniSifruSO promenaSifreSO = new PromeniSifruSO(new Korisnik()
                 {
                     SifraKorisnika = userId,
                     Password = passwords.GetProperty("newPassword").GetString()
                 });
-                so.ExecuteTemplate();
+                promenaSifreSO.ExecuteTemplate();
                 //return Ok(passwords.GetProperty("oldPassword").GetString() + passwords.GetProperty("newPassword").GetString());
             }
             catch (Exception ex)

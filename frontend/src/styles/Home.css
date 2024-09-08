@@ -1,0 +1,166 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.pozadina {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #000;
+  z-index: -1;
+}
+
+.pozadina::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-image: url("../assets/img/Kolor-Tim-Logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(0px);
+  z-index: 0;
+}
+
+.loading-container {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.box {
+  background-color: #000000;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 20px 40px 30px 40px; */
+  z-index: 0;
+  /* border: #fff solid 2px; */
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: -2px;
+  right: -2px;
+  left: -2px;
+  bottom: -2px;
+  z-index: -1;
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: -2px;
+  right: -2px;
+  left: -2px;
+  bottom: -2px;
+  z-index: -2;
+  filter: blur(40px);
+}
+
+.box::after,
+.box::before {
+  animation: bgAnim 5s linear infinite;
+}
+
+@keyframes bgAnim {
+  0% {
+    background: linear-gradient(235deg, #ed1c24, #0000006d, #939598);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+  }
+
+  10% {
+    background: linear-gradient(235deg, #e3444a, #0000006d, #a1a1a3);
+    background-size: 300% 300%;
+    background-position: 20% 50%;
+  }
+
+  20% {
+    background: linear-gradient(235deg, #d94b56, #0000006d, #a7a7a9);
+    background-size: 300% 300%;
+    background-position: 40% 50%;
+  }
+
+  30% {
+    background: linear-gradient(235deg, #cf525f, #0000006d, #adadb0);
+    background-size: 300% 300%;
+    background-position: 60% 50%;
+  }
+
+  40% {
+    background: linear-gradient(235deg, #c55a68, #0000006d, #b3b3b6);
+    background-size: 300% 300%;
+    background-position: 80% 50%;
+  }
+
+  50% {
+    background: linear-gradient(235deg, #bb6271, #0000006d, #b9b9bc);
+    background-size: 300% 300%;
+    background-position: 100% 50%;
+  }
+
+  60% {
+    background: linear-gradient(235deg, #b1697a, #0000006d, #bfbfc2);
+    background-size: 300% 300%;
+    background-position: 80% 50%;
+  }
+
+  70% {
+    background: linear-gradient(235deg, #a77183, #0000006d, #c5c5c8);
+    background-size: 300% 300%;
+    background-position: 60% 50%;
+  }
+
+  80% {
+    background: linear-gradient(235deg, #9d788c, #0000006d, #cbcbce);
+    background-size: 300% 300%;
+    background-position: 40% 50%;
+  }
+
+  90% {
+    background: linear-gradient(235deg, #938f95, #0000006d, #d1d1d4);
+    background-size: 300% 300%;
+    background-position: 20% 50%;
+  }
+
+  100% {
+    background: linear-gradient(235deg, #ed1c24, #0000006d, #939598);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+  }
+}
+
+.box .content {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px 30px 40px;
+}
+
+.box .content h1 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.box .content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

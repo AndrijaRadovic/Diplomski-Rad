@@ -1,0 +1,173 @@
+.login-container {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+.login-box {
+  background-color: #000000;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 20px 40px 30px 40px; */
+  z-index: 0;
+  /* border: #fff solid 2px; */
+}
+
+.login-box::before {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: -2px;
+  right: -2px;
+  left: -2px;
+  bottom: -2px;
+  z-index: -1;
+}
+
+.login-box::after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: -2px;
+  right: -2px;
+  left: -2px;
+  bottom: -2px;
+  z-index: -2;
+  filter: blur(40px);
+}
+
+.login-box::after,
+.login-box::before {
+  animation: bgAnim 5s linear infinite;
+}
+
+@keyframes bgAnim {
+  0% {
+    background: linear-gradient(235deg, #ed1c24, #0000006d, #939598);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+  }
+
+  10% {
+    background: linear-gradient(235deg, #e3444a, #0000006d, #a1a1a3);
+    background-size: 300% 300%;
+    background-position: 20% 50%;
+  }
+
+  20% {
+    background: linear-gradient(235deg, #d94b56, #0000006d, #a7a7a9);
+    background-size: 300% 300%;
+    background-position: 40% 50%;
+  }
+
+  30% {
+    background: linear-gradient(235deg, #cf525f, #0000006d, #adadb0);
+    background-size: 300% 300%;
+    background-position: 60% 50%;
+  }
+
+  40% {
+    background: linear-gradient(235deg, #c55a68, #0000006d, #b3b3b6);
+    background-size: 300% 300%;
+    background-position: 80% 50%;
+  }
+
+  50% {
+    background: linear-gradient(235deg, #bb6271, #0000006d, #b9b9bc);
+    background-size: 300% 300%;
+    background-position: 100% 50%;
+  }
+
+  60% {
+    background: linear-gradient(235deg, #b1697a, #0000006d, #bfbfc2);
+    background-size: 300% 300%;
+    background-position: 80% 50%;
+  }
+
+  70% {
+    background: linear-gradient(235deg, #a77183, #0000006d, #c5c5c8);
+    background-size: 300% 300%;
+    background-position: 60% 50%;
+  }
+
+  80% {
+    background: linear-gradient(235deg, #9d788c, #0000006d, #cbcbce);
+    background-size: 300% 300%;
+    background-position: 40% 50%;
+  }
+
+  90% {
+    background: linear-gradient(235deg, #938f95, #0000006d, #d1d1d4);
+    background-size: 300% 300%;
+    background-position: 20% 50%;
+  }
+
+  100% {
+    background: linear-gradient(235deg, #ed1c24, #0000006d, #939598);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+  }
+}
+
+.login-box .login-content {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px 30px 40px;
+}
+
+.login-box .login-content h1 {
+  font-size: 40px;
+  color: #fff;
+}
+
+.login-box .login-content .login-forma {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-forma input {
+  background-color: #ffffff00;
+  color: #fff;
+  border-radius: 0.5em;
+  border-color: #939598;
+  padding: 0.5em;
+
+  margin-bottom: 1em;
+}
+
+.login-forma button {
+  background-color: #00000000;
+  color: #939598;
+  margin-top: 1em;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 1rem;
+  border: #939598 1px solid;
+  font-weight: bold;
+  transition: background-color 0.5s linear, color 0.5s linear,
+    border 0.5s linear;
+}
+
+.login-forma button:hover {
+  background-color: #ed1c24;
+  color: #000;
+  border-color: #ff000800;
+  cursor: pointer;
+}
+
+.login-forma button:focus {
+  background-color: #ed1c24;
+  color: #000;
+  border-color: #ff000800;
+  cursor: pointer;
+}

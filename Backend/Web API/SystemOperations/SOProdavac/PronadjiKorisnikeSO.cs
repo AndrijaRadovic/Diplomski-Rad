@@ -10,17 +10,17 @@ namespace Server.SystemOperations.SOProdavac
 {
     internal class PronadjiKorisnikeSO : SystemOperationBase
     {
-        private string filter;
+        private string[] vrednosti;
         public List<IEntity> Result { get; set; }
 
-        public PronadjiKorisnikeSO(string filter)
+        public PronadjiKorisnikeSO(string[] vrednosti)
         {
-            this.filter = filter;
+            this.vrednosti = vrednosti;
         }
 
         public override void ExecuteConcreteOperation()
         {
-            Result = broker.GetAllByFilter(new Korisnik(), filter);
+            Result = broker.GetAllByFilter(new Korisnik(), vrednosti[0], vrednosti[1]);
         }
     }
 }

@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Common
 {
     public interface IEntity
     {
+        [JsonIgnore]
         string TableName { get; }
+        [JsonIgnore]
         string PrimaryKey { get; }
         List<IEntity> GetReaderList(SqlDataReader reader);
         IEntity GetReaderResult(SqlDataReader reader);

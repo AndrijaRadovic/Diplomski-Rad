@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Common.Domain
@@ -12,6 +13,7 @@ namespace Common.Domain
     public class Alat : Proizvod
     {
         public TipAlata TipAlata { get; set; }
+        [JsonIgnore]
         public new string TableName => "Alat";
         public override string GetTableName(string use = "")
         {

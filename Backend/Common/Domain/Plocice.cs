@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Common.Domain
@@ -13,6 +14,8 @@ namespace Common.Domain
         public string Materijal { get; set; }
         public double Duzina { get; set; }
         public double Sirina { get; set; }
+
+        [JsonIgnore]
         public new string TableName => "Plocice";
         public override string GetTableName(string use = "")
         {

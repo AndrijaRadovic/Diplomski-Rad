@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Common.Domain
@@ -12,6 +13,8 @@ namespace Common.Domain
     {
         public string Boja { get; set; }
         public double VelicinaPakovanja { get; set; }
+
+        [JsonIgnore]
         public new string TableName => "Farba";
         public override string GetTableName(string use = "")
         {

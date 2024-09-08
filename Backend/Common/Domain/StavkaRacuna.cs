@@ -17,7 +17,11 @@ namespace Common.Domain
         public int Kolicina { get; set; }
         public double UkupnaCenaStavke { get; set; }
         public Proizvod Proizvod { get; set; }
+
+        [JsonIgnore]
         public string TableName => "StavkaRacuna";
+
+        [JsonIgnore]
         public string PrimaryKey => "redniBroj";
 
         public string AddColumn()
