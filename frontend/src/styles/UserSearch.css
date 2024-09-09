@@ -1,0 +1,133 @@
+.user-search-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-cards-containter {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* height: 100vh; */
+  background-color: #000;
+  position: relative;
+  flex: 1;
+}
+
+.search-cards-containter::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("../assets/img/Kolor-Tim-Logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5;
+  z-index: 0;
+  filter: blur(20px);
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 2rem;
+  z-index: 1;
+}
+
+.user-search-input {
+  padding: 10px;
+  width: 30%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: #333;
+  color: #fff;
+  margin-right: 0px;
+}
+
+.user-search-button {
+  position: absolute;
+  right: calc(28.5%);
+
+  padding: 10px 20px;
+  background-color: #ed1c24;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-search-button svg {
+  width: 80%;
+  height: 80%;
+}
+
+.user-search-button:hover {
+  background-color: #ff3b3f;
+}
+
+.user-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8%;
+  margin-top: 20px;
+  z-index: 1;
+  width: 80%;
+}
+
+/* .user-cards-container > div {
+  flex-basis: calc(33.333% - 20px);
+  max-width: calc(33.333% - 20px);
+} */
+
+.pagination {
+  margin-top: 20px;
+  margin-bottom: 2rem;
+  z-index: 1;
+}
+
+.pagination-button {
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-button:hover {
+  background-color: #ed1c24;
+}
+
+.pagination-button.active {
+  background-color: #ed1c24;
+  color: white;
+}
+
+@media (max-width: 1028px) {
+  .user-search-button {
+    position: unset;
+  }
+
+  .search-section {
+    position: unset;
+  }
+
+  .user-search-input {
+    margin-right: 3%;
+  }
+}

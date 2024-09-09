@@ -56,8 +56,6 @@ class ApiService{
 
     async changePassword(request){
         try{
-            console.log(request);
-            console.log(`https://localhost:7028/api/Users/${window.sessionStorage.getItem('userId')}/password`);
             const response = await axios.put(`https://localhost:7028/api/Users/${window.sessionStorage.getItem('userId')}/password`, request, {
                 headers:{
                     Authorization: `Bearer ${this.getToken()}`,
@@ -66,6 +64,77 @@ class ApiService{
             return response.data;
         } catch(error){
             console.error('Error updating password: ', error);
+            throw error;
+        }
+    }
+
+    async getAllUsers(){
+        try{
+            const response = await axios.get('https://localhost:7028/api/Users', {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            return response.data;
+        } catch(error){
+            console.error('Error fetching users: ', error);
+            throw error;
+        }
+    }
+
+    async findUsers(filter){
+        try{
+            const response = await axios.get(`https://localhost:7028/api/Users/search/${filter}`, {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            return response.data;
+        } catch(error){
+            console.error('Error fetching users: ', error);
+            throw error;
+        }
+    }
+
+    async getUser(id){
+        try{
+            console.log(`https://localhost:7028/api/Users/${id}`);
+            const response = await axios.get(`https://localhost:7028/api/Users/${id}`, {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            return response.data;
+        } catch(error){
+            console.error('Error fetching user', error);
+            throw error;
+        }
+    }
+
+    async updateUser(korisnik) {
+        try {
+            const response = await axios.put(`https://localhost:7028/api/Users/${korisnik.sifraKorisnika}`, korisnik, {
+                headers: {
+                    Authorization: `Bearer ${this.getToken()}`,
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error updating user', error);
+            throw error;
+        }
+    }
+
+    async deleteUser(id){
+        try{
+            const response = await axios.delete(`https://localhost:7028/api/Users/${id}`, {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            return response.data
+        }catch (error) {
+            console.error('Error deleting user', error);
             throw error;
         }
     }

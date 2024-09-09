@@ -38,7 +38,7 @@ namespace Web_API.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        [HttpGet("/search/{filter}")]
+        [HttpGet("search/{filter}")]
         [ProducesResponseType(200, Type = typeof(List<Korisnik>))]
         public IActionResult FindUsers(string filter)
         {
@@ -50,7 +50,7 @@ namespace Web_API.Controllers
                 List<Korisnik> users = so.Result.Cast<Korisnik>().ToList();
 
                 if (users == null || users.Count == 0)
-                    return NotFound();
+                    return NotFound("Nema gi bajo");
 
                 return Ok(users);
             }

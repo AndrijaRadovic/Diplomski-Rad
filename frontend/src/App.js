@@ -8,6 +8,8 @@ import Logout from './components/Logout';
 import Product from './components/Product';
 import User from './components/User';
 import ChangePassword from './components/ChangePassword.tsx';
+import UserCard from './components/UserCard.jsx';
+import UserSearch from './components/UserSearch.jsx';
 // import 'normalize.css';
 
 function App() {
@@ -20,6 +22,9 @@ function App() {
         <Route path='/product' element={<Product />} />
         <Route path='/user' element={<User />} />
         <Route path='/change-password' element={<ChangePassword />} />
+        <Route path='/user/id' element={<UserCard user={{ime: 'Pera', prezime: 'Peric', uloga: 'Admin', email: 'pera@gmail.com', brojTelefona: '+38161665684'}} />} />
+        <Route path='/users' element={<UserSearch />} />
+        <Route path='/users/:id' element={<User />} />
       </Routes>
     </Router>
   );
