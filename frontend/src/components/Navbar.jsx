@@ -34,7 +34,7 @@ const Navbar = () => {
         <div className="dropdown">
           <button className="dropbtn">Račun</button>
           <div className="dropdown-content">
-            <Link to="/receipt">Kreiraj račun</Link>
+            <Link to="/create-receipt">Kreiraj račun</Link>
             <Link to="/receipts">Prikaži račune</Link>
           </div>
         </div>

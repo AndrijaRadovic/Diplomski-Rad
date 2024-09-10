@@ -5,7 +5,7 @@ import Navbar from './Navbar.jsx';
 import { apiService } from './ApiService.js';
 import UserForm from './UserForm.tsx'
 
-const User = ( ) => {
+const User = () => {
 
     const navigate = useNavigate();
     const {id} = useParams();

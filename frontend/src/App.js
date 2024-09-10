@@ -10,6 +10,8 @@ import User from './components/User';
 import ChangePassword from './components/ChangePassword.tsx';
 import UserCard from './components/UserCard.jsx';
 import UserSearch from './components/UserSearch.jsx';
+import ProductsTable from './components/ProductsTable.jsx';
+import Receipt from './components/Receipt';
 // import 'normalize.css';
 
 function App() {
@@ -22,9 +24,13 @@ function App() {
         <Route path='/product' element={<Product />} />
         <Route path='/user' element={<User />} />
         <Route path='/change-password' element={<ChangePassword />} />
-        <Route path='/user/id' element={<UserCard user={{ime: 'Pera', prezime: 'Peric', uloga: 'Admin', email: 'pera@gmail.com', brojTelefona: '+38161665684'}} />} />
+        {/* <Route path='/user/id' element={<UserCard user={{ime: 'Pera', prezime: 'Peric', uloga: 'Admin', email: 'pera@gmail.com', brojTelefona: '+38161665684'}} />} /> */}
         <Route path='/users' element={<UserSearch />} />
         <Route path='/users/:id' element={<User />} />
+        <Route path='/products/:id' element={<Product />} />
+        <Route path='/products' element={<ProductsTable />} />
+        <Route path='/create-receipt' element={<Receipt />} />
+        <Route path='/receipts/:id' element={<Receipt />} />
       </Routes>
     </Router>
   );

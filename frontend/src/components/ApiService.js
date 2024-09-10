@@ -40,6 +40,49 @@ class ApiService{
         }
     }
 
+    async updateProduct(product) {
+        try {
+            console.log(`https://localhost:7028/api/Users/${product.sifraProizvoda}`)
+            const response = await axios.put(`https://localhost:7028/api/Products/${product.sifraProizvoda}`, product, {
+                headers: {
+                    Authorization: `Bearer ${this.getToken()}`,
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error updating product', error);
+            throw error;
+        }
+    }
+
+    async getAllProducts(){
+        try{
+            const response = await axios.get(`https://localhost:7028/api/Products`, {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            return response.data;
+        } catch (error){
+            console.error('Error fetching products', error);
+            throw error;
+        }
+    }
+
+    async findProducts(filter){
+        try{
+            const response = await axios.get(`https://localhost:7028/api/Products/search/${filter}`, {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            return response.data;
+        } catch (error){
+            console.error('Error fetching products', error);
+            throw error;
+        }
+    }
+
     async createUser(korisnik) {
         try {
             const response = await axios.post('https://localhost:7028/api/Users', korisnik, {
@@ -50,6 +93,36 @@ class ApiService{
             return response.data;
         } catch (error) {
             console.error('Error creating user', error);
+            throw error;
+        }
+    }
+
+    async createReceipt(receipt) {
+        try {
+            const response = await axios.post('https://localhost:7028/api/Receipts', receipt, {
+                headers: {
+                    Authorization: `Bearer ${this.getToken()}`,
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error creating user', error);
+            throw error;
+        }
+    }
+
+    async deleteProduct(product) {
+        try {
+            console.log("prod: ", product);
+            console.log(`zahtev = https://localhost:7028/api/Products/${product.sifraProizvoda}/tip${product.tipProizvoda}`)
+            const response = await axios.delete(`https://localhost:7028/api/Products/${product.sifraProizvoda}/tip${product.tipProizvoda}`, {
+                headers: {
+                    Authorization: `Bearer ${this.getToken()}`,
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error deleting product', error);
             throw error;
         }
     }
@@ -98,7 +171,7 @@ class ApiService{
 
     async getUser(id){
         try{
-            console.log(`https://localhost:7028/api/Users/${id}`);
+            // console.log(`https://localhost:7028/api/Users/${id}`);
             const response = await axios.get(`https://localhost:7028/api/Users/${id}`, {
                 headers:{
                     Authorization: `Bearer ${this.getToken()}`
@@ -132,9 +205,41 @@ class ApiService{
                     Authorization: `Bearer ${this.getToken()}`
                 }
             });
-            return response.data
+            return response.data;
         }catch (error) {
             console.error('Error deleting user', error);
+            throw error;
+        }
+    }
+
+    async getProduct(id){
+        try{
+            // console.log(`https://localhost:7028/api/Users/${id}`);
+            const response = await axios.get(`https://localhost:7028/api/Products/${id}`, {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            // console.log(response.data)
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching product', error);
+            throw error;
+        }
+    }
+
+    async getReceipt(id){
+        try{
+            console.log(`https://localhost:7028/api/Users/${id}`);
+            const response = await axios.get(`https://localhost:7028/api/Receipts/${id}`, {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            // console.log(response.data)
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching receipts', error);
             throw error;
         }
     }

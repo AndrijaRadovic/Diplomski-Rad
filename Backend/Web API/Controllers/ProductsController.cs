@@ -126,21 +126,21 @@ namespace Web_API.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        [HttpDelete("{productId}")]
+        [HttpDelete("{productId}/tip{tipProizvoda}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
-        public IActionResult DeleteProduct(int productId, [FromBody]TipProizvoda tipProizvoda)
+        public IActionResult DeleteProduct(int productId, int tipProizvoda)
         {
             try
             {
                 Proizvod proizvod;
 
-                if (tipProizvoda == TipProizvoda.Plocice)
+                if ((TipProizvoda)tipProizvoda == TipProizvoda.Plocice)
                     proizvod = new Plocice()
                     {
                         SifraProizvoda = productId
                     };
-                else if (tipProizvoda == TipProizvoda.Farba)
+                else if ((TipProizvoda)tipProizvoda == TipProizvoda.Farba)
                     proizvod = new Farba()
                     {
                         SifraProizvoda = productId

@@ -1,4 +1,4 @@
-import { Korisnik } from "./Korisnik";
+import { Korisnik } from "./Korisnik.ts";
 import { StavkaRacuna } from "./StavkaRacuna";
 import { StatusRacuna } from "./StatusRacuna";
 

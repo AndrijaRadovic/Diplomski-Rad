@@ -1,4 +1,4 @@
-import { Proizvod } from "./Proizvod";
+import { Proizvod } from "./Proizvod.ts";
 
 export class StavkaRacuna{
     racunId: number;
