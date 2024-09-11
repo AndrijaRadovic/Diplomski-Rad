@@ -82,17 +82,6 @@ const ProductsTable = () => {
                         <button onClick={handleSearch} className="products-table-search-button">
                             Pretraži
                         </button>
-
-                        {/*<select
-                            value={selectedTipProizvoda}
-                            onChange={handleTipProizvodaChange}
-                            className="products-table-filter-select"
-                        >
-                            <option value="">Izaberite tip proizvoda</option>
-                            <option value={TipProizvoda.Alat}>Alat</option>
-                            <option value={TipProizvoda.Farba}>Farba</option>
-                            <option value={TipProizvoda.Plocice}>Pločice</option>
-                        </select>*/}
                     </div>
 
                     <table className="products-table">

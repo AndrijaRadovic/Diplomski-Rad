@@ -12,7 +12,7 @@ namespace Web_API.Controllers
     [Route("api/[controller]")]
     public class ReceiptsController : ControllerBase
     {
-        [HttpPut("receiptId")]
+        [HttpPut("{receiptId}")]
         [ProducesResponseType(400)]
         [ProducesResponseType(204)]
         public IActionResult UpdateReceipt(int receiptId, [FromBody] Racun updatedReceipt)

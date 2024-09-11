@@ -244,6 +244,63 @@ class ApiService{
         }
     }
 
+    async getAllReceipts(){
+        try{
+            const response = await axios.get('https://localhost:7028/api/Receipts', {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            return response.data;
+        } catch(error){
+            console.error('Error fetching receipts: ', error);
+            throw error;
+        }
+    }
+
+    async getReceiptsByDate(date){
+        try{
+            const response = await axios.get(`https://localhost:7028/api/Receipts/search/${date}`, {
+                headers:{
+                    Authorization: `Bearer ${this.getToken()}`
+                }
+            });
+            return response.data;
+        } catch(error){
+            console.error('Error fetching receipts: ', error);
+            throw error;
+        }
+    }
+
+    async cancelReceipt(receipt) {
+        try {
+            const response = await axios.post(`https://localhost:7028/api/Receipts/cancel/${receipt.sifraRacuna}`, receipt, {
+                headers: {
+                    Authorization: `Bearer ${this.getToken()}`,
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error canceling receipt', error);
+            throw error;
+        }
+    }
+
+    async updateReceipt(receipt) {
+        try {
+            // console.log(`https://localhost:7028/api/Receipts/${receipt.sifraRacuna}`)
+            const response = await axios.put(`https://localhost:7028/api/Receipts/${receipt.sifraRacuna}`, receipt, {
+                headers: {
+                    Authorization: `Bearer ${this.getToken()}`,
+                }
+            });
+            return response.data;
+        } catch (error) {
+            console.error('Error updating receipt', error);
+            throw error;
+        }
+    }
+
     getToken(){
         return window.sessionStorage.getItem('token');
     }

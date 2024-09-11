@@ -12,6 +12,7 @@ import UserCard from './components/UserCard.jsx';
 import UserSearch from './components/UserSearch.jsx';
 import ProductsTable from './components/ProductsTable.jsx';
 import Receipt from './components/Receipt';
+import ReceiptsSearch from './components/ReceiptsSearch.jsx';
 // import 'normalize.css';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path='/products' element={<ProductsTable />} />
         <Route path='/create-receipt' element={<Receipt />} />
         <Route path='/receipts/:id' element={<Receipt />} />
+        <Route path='/receipts' element={<ReceiptsSearch />} />
       </Routes>
     </Router>
   );

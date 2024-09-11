@@ -53,9 +53,6 @@
 
 .receipt-form-inputs input,
 .receipt-form-inputs select {
-  /* padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc; */
   padding: 10px;
   border-radius: 5px;
   border: none;
