@@ -148,6 +148,7 @@ const ProductForm = ( { product } ) => {
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
+
         e.preventDefault();
         if (validate()){
 

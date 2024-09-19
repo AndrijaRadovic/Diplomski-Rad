@@ -114,7 +114,7 @@ const UserForm = ( { user } ) => {
         e.preventDefault();
         if (validate()) {
             const korisnik = new Korisnik();
-            korisnik.sifraKorisnika = user.sifraKorisnika;
+            korisnik.sifraKorisnika = user?.sifraKorisnika;
             korisnik.brojTelefona = formValues.telefon;
             korisnik.email = formValues.email;
             korisnik.ime = formValues.ime;
